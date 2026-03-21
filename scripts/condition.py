@@ -17,4 +17,5 @@ def classify_condition(img):
     elif blur < 100:
         return "blurry"
     else:
-        return "clear"
+        return "clear"      
+        

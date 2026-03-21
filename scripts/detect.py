@@ -4,7 +4,7 @@ from condition import classify_condition
 from enhance import enhance_by_condition
 
 # Load YOLO model (temporary default model)
-model = YOLO("yolov8n.pt")
+model = YOLO("models/best.pt")
 
 # Load image
 img = cv2.imread("images/test.jpg")
