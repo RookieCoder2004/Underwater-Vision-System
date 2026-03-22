@@ -43,7 +43,7 @@ python scripts/compare.py
 Run UI
 streamlit run app.py
 
-📈 Pollution Scoring
+Pollution Scoring
 Pollution is calculated using:
 
 Number of detected objects
