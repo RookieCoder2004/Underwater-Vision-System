@@ -10,7 +10,7 @@ This project is an AI-based system for detecting underwater debris using YOLOv8.
 - Condition-based Image Enhancement
 - Pollution Scoring (based on bounding boxes)
 - Evaluation using confidence & detection metrics
-- 🖥️Streamlit UI for visualization
+- Streamlit UI for visualization
 
 ---
 
