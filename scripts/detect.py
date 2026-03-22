@@ -30,7 +30,43 @@ for filename in os.listdir(image_folder):
         results = model(enhanced)
         output = results[0].plot()
 
-        # ADD CONDITION TEXT ON IMAGE
+        # 🟢 STEP 4: POLLUTION SCORING
+
+        boxes = results[0].boxes
+
+        # Count objects
+        count = len(boxes)
+
+        # Total bounding box area
+        total_area = 0
+        for box in boxes.xyxy:
+            x1, y1, x2, y2 = box
+            area = (x2 - x1) * (y2 - y1)
+            total_area += area
+
+        # Normalize by image size
+        img_area = img.shape[0] * img.shape[1]
+        coverage = total_area / img_area if img_area > 0 else 0
+
+        # Average confidence
+        avg_conf = float(boxes.conf.mean()) if len(boxes) > 0 else 0
+
+        # Final pollution score
+        score = count * 2 + coverage * 100 + avg_conf * 10
+
+        # Pollution level
+        if score > 50:
+            level = "HIGH"
+        elif score > 25:
+            level = "MEDIUM"
+        else:
+            level = "LOW"
+
+        print(f"Pollution Score: {score:.2f}")
+        print(f"Pollution Level: {level}")
+
+        # 🟢 ADD TEXT ON IMAGE
+
         cv2.putText(
             output,
             f"Condition: {condition}",
@@ -41,7 +77,18 @@ for filename in os.listdir(image_folder):
             2
         )
 
-        # SAVE OUTPUT (with condition name)
+        cv2.putText(
+            output,
+            f"Pollution: {level}",
+            (10, 70),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            1,
+            (0, 0, 255),
+            2
+        )
+
+        # SAVE OUTPUT
+        os.makedirs("outputs", exist_ok=True)
         cv2.imwrite(f"outputs/{condition}_{filename}", output)
 
         # SHOW ALL STAGES
