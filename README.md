@@ -6,20 +6,20 @@ This project is an AI-based system for detecting underwater debris using YOLOv8.
 ---
 
  Features
-- 🔍 Object Detection using YOLOv8
-- 🌫️ Condition-based Image Enhancement
-- 📊 Pollution Scoring (based on bounding boxes)
-- 📈 Evaluation using confidence & detection metrics
-- 🖥️ Streamlit UI for visualization
+- Object Detection using YOLOv8
+- Condition-based Image Enhancement
+- Pollution Scoring (based on bounding boxes)
+- Evaluation using confidence & detection metrics
+- 🖥️Streamlit UI for visualization
 
 ---
 
-🧠 System Pipeline
+System Pipeline
 Image → Condition Detection → Enhancement → YOLO Detection → Pollution Scoring → Output
 
 ---
 
-📂 Project Structure
+Project Structure
 underwater-vision/
 ├── images/
 ├── outputs/
@@ -34,13 +34,13 @@ underwater-vision/
 
 ---
 
-▶️ Run Detection
+Run Detection
 python scripts/detect.py
 
-📊 Run Evaluation
+Run Evaluation
 python scripts/compare.py
 
-🖥️ Run UI
+Run UI
 streamlit run app.py
 
 📈 Pollution Scoring
@@ -52,19 +52,19 @@ Detection confidence
 
 ---
 
-🔥 Results
+Results
 Improved detection in low visibility conditions
 Reduced false positives after enhancement
 Pollution level classification (LOW / MEDIUM / HIGH)
 
 ---
 
-🚧 Future Work
+Future Work
 Multi-class detection
 Real-time video processing
 Instance segmentation
 
 ---
 
-👨‍💻 Author
+Author
 Anshul Tickoo
